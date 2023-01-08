@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PhaseController;
+use App\Http\Controllers\ProjetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProjetController::class,'index']);
+
+Route::get('/ajout', [ProjetController::class, 'ajout']);
+
+Route::get('/enregistrer', [ProjetController::class, 'enregistrer']);
+Route::get('/detail', [ProjetController::class, 'detail']);
+Route::get('/ajoutPhase', [PhaseController::class, 'ajout']);
+Route::get('/ajouter', [PhaseController::class, 'ajouter']);
